@@ -1,0 +1,17 @@
+# Render Blueprint for the Node.js relay (Singapore, free plan).
+# In Render: New > Blueprint > pick this repository.
+services:
+  - type: web
+    name: bo1-zombies-coop-relay
+    runtime: node
+    region: singapore
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: node server.js
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: ALLOWED_ORIGINS
+        value: https://vel.gg
+      - key: NODE_VERSION
+        value: "22"
